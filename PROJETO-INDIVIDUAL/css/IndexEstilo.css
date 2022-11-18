@@ -1,0 +1,60 @@
+main{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+
+
+
+/* TEXTO INICIAL */
+.container_descricao{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+
+
+}
+
+.texto_arte_grega{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-left: 2vw;
+font-size: 22px;
+font-family:'Crimson';
+width:40vw;
+height: 60vh;
+
+border-radius: 10%;
+
+}
+
+.texto_principal{
+
+}
+
+
+
+
+/*CONTEUDO*/
+
+.container_conteudo{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 5vh;
+
+}
+
+.video_index{
+    width:60vw;
+    border-radius: 6%;
+}
+
+/* VIDEO*/
