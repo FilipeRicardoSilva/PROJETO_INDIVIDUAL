@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/PadraoEstilo.css">
+    <link rel="stylesheet" href="../css/LoginEstilo.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="div_header superior">
+            <ul class="ul_header superior">
+                <li class="li_header imagem superior"> <img class="imagem_header_superior" src="imgs/medusa_png.png"
+                        alt=""></li>
+
+                <li class="li_header olimpo superior"> O L I M P O </li>
+
+                <li class="li_header entrada superior"> <a class="a_entrada superior" href="">Ajuda </a>|<a
+                        class="a_entrada superior" href=""> Junte-se a nós </a> |<a a class="a_entrada superior"
+                        href=""> Entrar </a> </li>
+
+
+            </ul>
+        </div>
+        <div class="div_header inferior">
+            <ul class="ul_header inferior">
+                <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="Login.html">Quiz</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="Login.html">Sua conta</a></li>
+                
+                </ul>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <div class="container">
+
+            <div class="caixa AbaAuxiliar_Cadastrar">
+                <div class="conteudo_cadastrar">
+                    <h2 class="CADASTRAR">CADASTRAR</h2>
+                    <ul class="lista lista_cadastrar entrar">
+                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar nome" for="inputEmail">Nome</label>
+                            <input class="input_cadastrar " type="text" placeholder="Seu Nome Aqui" id="inputEmail">
+                        </li>
+                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar email" for="inputEmail">Email</label>
+                            <input class="input_cadastrar" type="text" placeholder="fulano@gmail.com" id="inputEmail">
+                        </li>
+                        <li class="atributo_cadastrar senha"><label class="label_cadastrar senha" for="InputSenha_cadastrar">Senha</label>
+                            <input class="input_cadastrar" type="password" placeholder="*****" id="InputSenha_cadastrar"> <input class="input_revelar_senha" type="checkbox" onclick="revelarSenha()">
+                        </li>
+                        <li class="atributo_cadastrar senha"><label class="label_cadastrar confirmar_senha"
+                                for="InputConfirmarSenha">Confirmar Senha</label> 
+                            <input class="input_cadastrar" type="password" placeholder="*****" id="InputConfirmarSenha"> <input class="input_revelar_senha" type="checkbox" onclick="revelarConfirmarSenha()" id="input_revelar_senha">        
+                        </li>
+                        <button class="botao_cadastrar">Cadastrar</button>
+                    </ul>
+                </div>
+                <div class="imagem_medusa">
+                    <h2 class="Cadastre_se"><a class="Cadastre_se_link" href="Cadastro.html">Cadastre-Se</a></h2>
+                </div>
+            </div>
+
+
+            <div class="caixa entrar_principal">
+                <div class="conteudo_entrar" >
+                <h2 class="ENTRAR"> ENTRAR</h2>
+                <ul class="lista lista_entrar entrar">
+                    <li class="atributo entrar"> <label class="label_nome" for="inputEmail">Nome ou email do
+                            usuario</label>
+                        <input class="input_login" type="text" placeholder="nome/*****@gmail.com" id="inputEmail">
+                    </li>
+                    <li class="atributo entrar"><label class="label_senha" for="InputSenha">Senha</label>
+                        <input class="input_login" type="password" placeholder="*****" id="InputSenha">
+                    </li>
+                   <button class="Botao botao_entrar">Entrar</button>
+                </ul>
+            </div>
+                <div class="imagem_davi">
+                    <h2 class="Login"><a class="Login_link" href="Cadastro.html">LOGIN</a></h2>
+                </div>
+
+            </div>
+               
+        
+
+        </div>
+    </main>
+
+
+
+
+    <footer>
+        <ul class="lista_footer  left">
+            <li class="atributo_footer">Siga nossas redes sociais</li>
+            <li class="atributo_footer redes_sociais"><a class="link_redesSociais" href=""> <img
+                        class="imagem_redesSociais" src="../PROJETO-INDIVIDUAL/imgs/facebook.png" alt=""> Facebook</a>
+            </li>
+            <li class="atributo_footer redes_sociais"><a class="link_redesSociais" href=""> <img
+                        class="imagem_redesSociais" src="../PROJETO-INDIVIDUAL/imgs/instagram.png" alt=""> Instagram
+                </a></li>
+            <li class="atributo_footer redes_sociais"><a class="link_redesSociais" href=""> <img
+                        class="imagem_redesSociais" src="../PROJETO-INDIVIDUAL/imgs/twitter.png" alt=""> Twitter </a>
+            </li>
+
+        </ul>
+
+        <ul class="lista_footer center">
+            <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
+
+        </ul>
+
+        <ul class="lista_footer right">
+            <li class="atributo_footer">Politica de Privacidade<br>Fala Conosco </li>
+            <li class="atributo_footer">www.gregoarte@gmail.com</li>
+        </ul>
+    </footer>
+
+<input type="password">
+</body>
+
+</html>
+
+<script>
+function revelarSenha(){
+
+if(InputSenha_cadastrar.type == 'text'){
+    InputSenha_cadastrar.type='password'
+} else{
+    InputSenha_cadastrar.type='text'
+}
+
+}
+
+function revelarConfirmarSenha(){
+    if(InputConfirmarSenha.type == 'text'){
+    InputConfirmarSenha.type='password'
+} else{
+    InputConfirmarSenha.type='text'
+}
+
+}
+
+
+
+</script>
