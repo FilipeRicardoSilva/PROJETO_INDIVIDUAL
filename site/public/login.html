@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/PadraoEstilo.css">
-    <link rel="stylesheet" href="../css/LoginEstilo.css">
+    <link rel="stylesheet" href="css/PadraoEstilo.css">
+    <link rel="stylesheet" href="css/LoginEstilo.css">
+    <link rel="stylesheet" href="js/funcoes.js">
 </head>
 
 <body>
@@ -31,9 +32,9 @@
         <div class="div_header inferior">
             <ul class="ul_header inferior">
                 <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
-                <li class="li_header inferior"><a class="a_entrada inferior" href="Login.html">Quiz</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="login.html">Quiz</a></li>
                 <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
-                <li class="li_header inferior"><a class="a_entrada inferior" href="Login.html">Sua conta</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="cadastrar.html">Sua conta</a></li>
                 
                 </ul>
 
@@ -43,32 +44,12 @@
 
 
     <main>
+        <div class="cardErro" id="cardErro"></div>
+        <div id="mensagem_erro"></div>
 
         <div class="container">
 
-            <div class="caixa AbaAuxiliar_Cadastrar">
-                <div class="conteudo_cadastrar">
-                    <h2 class="CADASTRAR">CADASTRAR</h2>
-                    <ul class="lista lista_cadastrar entrar">
-                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar nome" for="nome_input">Nome</label>
-                            <input class="input_cadastrar " type="text" placeholder="Seu Nome Aqui" id="nome_input">
-                        </li>
-                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar email" for="email_input">Email</label>
-                            <input class="input_cadastrar" type="text" placeholder="fulano@gmail.com" id="email_input">
-                        </li>
-                        <li class="atributo_cadastrar senha"><label class="label_cadastrar senha" for="senha_input">Senha</label>
-                            <input class="input_cadastrar" type="password" placeholder="*****" id="senha_input"> <input class="input_revelar_senha" type="checkbox" onclick="revelarSenha()">
-                        </li>
-                        <li class="atributo_cadastrar senha"><label class="label_cadastrar confirmar_senha" for="confirmacao_senha_input">Confirmar Senha</label> 
-                            <input class="input_cadastrar" type="password" placeholder="*****" id="confirmacao_senha_input"> <input class="input_revelar_senha" type="checkbox" onclick="revelarConfirmarSenha()" id="input_revelar_senha">        
-                        </li>
-                        <button class="botao_cadastrar">Cadastrar</button>
-                    </ul>
-                </div>
-                <div class="imagem_medusa">
-                    <h2 class="Cadastre_se"><a class="Cadastre_se_link" href="Cadastro.html">Cadastre-Se</a></h2>
-                </div>
-            </div>
+            
 
 
             <div class="caixa entrar_principal">
@@ -82,11 +63,11 @@
                     <li class="atributo entrar"><label class="label_senha" for="InputSenha">Senha</label>
                         <input class="input_login" type="password" placeholder="*****" id="InputSenha_entrar">
                     </li>
-                   <button class="Botao botao_entrar">Entrar</button>
+                   <button class="Botao botao_entrar" onclick="entrar()">Entrar</button>
                 </ul>
             </div>
                 <div class="imagem_davi">
-                    <h2 class="Login"><a class="Login_link" href="Cadastro.html">LOGIN</a></h2>
+                    <h2 class="Login"><a class="Login_link" href="cadastrar.html">LOGIN</a></h2>
                 </div>
 
             </div>
@@ -151,84 +132,8 @@ function revelarConfirmarSenha(){
 }
 
 
-
-</script>
-<!-- CADASTRO JS > 
-<!-->
-<script>
-    function cadastrar() {
-        aguardar();
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos";
-
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                confirmacaoServer: confirmacaoSenhaVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-                
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
-</script>
-<!-- ENTRAR JS > 
-<!-->
-<script>
-
-
-    function entrar() {
-        aguardar();
+       function entrar() {
+        //aguardar();
 
         var emailVar = InputEmail_entrar.value;
         var senhaVar = InputSenha_entrar.value;
@@ -239,7 +144,7 @@ function revelarConfirmarSenha(){
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 2000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -280,7 +185,7 @@ function revelarConfirmarSenha(){
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                   // finalizarAguardar(texto);
                 });
             }
 
