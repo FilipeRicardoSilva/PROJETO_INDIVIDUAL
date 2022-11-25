@@ -20,7 +20,7 @@ main {
    
     height: 100%;
     margin-top: -6vh;
-    background-image: url(../imgs/marmore_dourado.jpg);
+    background-image: url(../assets/imgs/marmore_dourado.jpg);
     background-size: cover;
     background-color: rgb(255, 248, 233, 0.4);
    
@@ -32,6 +32,7 @@ main {
 footer {
     background-image: url(../imgs/marmoreBlackGold.jpg);
     background-size: cover;
+    background-color: rgb(0, 0, 0, 0.5);
     height: 25vh;
     display: flex;
     flex-direction: row;

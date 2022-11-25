@@ -67,10 +67,13 @@
                         </li>
                         <button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
                     </ul>
+                    <div id="alerta"></div>
+                    <div id="regra_senha"></div>
                 </div>
                 <div class="imagem_medusa">
                     <h2 class="Cadastre_se"><a class="Cadastre_se_link" href="Cadastro.html">Cadastre-Se</a></h2>
                 </div>
+                
             </div>
 
                  
@@ -160,9 +163,8 @@ function revelarConfirmarSenha(){
 
 
 // CADASTRO JS 
-
-    function cadastrar() {
-        // aguardar(); 
+function cadastrar() {
+ 
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -171,17 +173,67 @@ function revelarConfirmarSenha(){
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
+        var senha = senha_input.value;
+        var conf_senha = confirmacao_senha_input.value;
+
+        //FRASE DE ALERTA
+        var frase_alerta = "Não foi possível realizar o cadastro!<br> A senha deve ter 8 digitos!"
+        var frase_senha = "Cuidado, senha fraca!"
+
+        //VALIDAÇÕES PARA A ENTRADA
+
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos";
+            mensagem_erro.innerHTML = "Preencha os campos em branco";
 
-           // finalizarAguardar();
-            return true;
+            
+            return false;
+
         }
-        else {
-            setInterval(sumirMensagem, 1000)
+        else if (senha.length != 8 ) {
+            alerta.innerHTML = `
+             <p style="color: red;">
+             ${frase_alerta}
+             </p>
+         `
+            
+            return false;
+        } else if (senha != conf_senha) {
+            alerta.innerHTML = `
+             <p style="color: red;">
+             As senhas devem ser iguais!
+             </p>
+            `;
+            
+            return false;
+        }
+        else if (senha == 12345678) {
+            alerta.innerHTML = `   <p style="color: red;">
+             ${frase_senha}
+             </p>`;
+            
+            return false;
         }
 
+        else if (senha.length < 8) {
+            var letraMaiuscula = senha.match(/[A-Z]/);
+            var letraMinuscula = senha.match(/[a-z]/);
+            var numeros = senha.match(/[0-9]/);
+
+            if (!letraMaiuscula || !letraMinuscula || !numeros) {
+                regra_senha.innerHTML = "";
+                alerta.innerHTML = `
+                <p style="color: red;">
+                    A senha deve conter letra minúscula,
+                    letra maiuscula e um numero.
+                </p>`;
+                
+                return false;
+            }
+        } else {
+            setInterval(sumirMensagem, 5000)
+            mensagem_erro.value = "";
+        }
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -194,7 +246,7 @@ function revelarConfirmarSenha(){
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                confirmacaoServer: confirmacaoSenhaVar
+                confirmacaoSenhaServer: confirmacaoSenhaVar
             })
         }).then(function (resposta) {
 
@@ -208,20 +260,19 @@ function revelarConfirmarSenha(){
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
-                
+
                 limparFormulario();
-                //finalizarAguardar();
+                
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            //finalizarAguardar();
+            
         });
 
-        return false;
+        return true;
     }
-
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
