@@ -43,15 +43,40 @@
 
 
     <main>
-        <div class="container_quiz" id="titulo"> </div>
-        <ul>
-            <li class="alternativa"></li>
-            <li class="alternativa"></li>
-            <li class="alternativa"></li>
-            <li class="alternativa"></li>
-        </ul>
-        <div id="RespostaDiv"></div>
-        <div id="Pontos"></div>
+
+        <div class="container_conteudo">
+            <div class="Metricas">
+                <div class="PontosRanking"> Ponto de Todos Participantes</div>
+                <div class="Ranking">
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+
+
+
+</ul>
+                </div>
+            </div>
+            <div class="container_quiz">
+
+
+                <div class="Titulo_questão" id="titulo"> </div>
+                <ul>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                </ul>
+                <div class="RespostaDiv" id="RespostaDiv"></div>
+                <div class="Pontos" id="Pontos"></div>
+
+            </div>
+          
+
+        </div>
     </main>
 
 
@@ -59,22 +84,22 @@
 
 
     <footer>
-      
-        <ul class="lista_footer left"> 
-        <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
-        
+
+        <ul class="lista_footer left">
+            <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
+
         </ul>
-                <ul class="lista_footer center">
-                    <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
-                    <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
-        
-                </ul>
-        
-                <ul class="lista_footer right">
-                    <li class="atributo_footer"> G R E C O </li>
-                    <li class="atributo_footer">www.gregoarte@gmail.com</li>
-                </ul>
-            </footer>
+        <ul class="lista_footer center">
+            <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
+            <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
+
+        </ul>
+
+        <ul class="lista_footer right">
+            <li class="atributo_footer"> G R E C O </li>
+            <li class="atributo_footer">www.gregoarte@gmail.com</li>
+        </ul>
+    </footer>
 
 
 </body>
@@ -180,27 +205,27 @@
 
 
         {
-            titulo: 'gato',
+            titulo: 'Gato ?',
             alternativas: ['gat', 'Brandao', 'lat', 'dog'],
             correta: 1
         },
         {
-            titulo: 'David',
+            titulo: 'David ?',
             alternativas: ['Michelangelo', 'pat', 'lat', 'Brandao'],
             correta: 3
         },
         {
-            titulo: 'Luiz',
+            titulo: 'Luiz ?',
             alternativas: ['gat', 'pat', 'Brandao', 'dog'],
             correta: 2
         },
         {
-            titulo: 'Mamaco',
+            titulo: 'Mamaco ?',
             alternativas: ['Brandao', 'pat', 'lat', 'dog'],
             correta: 0
         },
         {
-            titulo: 'Cabele',
+            titulo: 'Cabele ?',
             alternativas: ['Brandao', 'pat', 'lat', 'dog'],
             correta: 0
         },
@@ -285,7 +310,7 @@
                 var pergunta = perguntas[this.Atualpos];
                 var corretaIndice = pergunta.correta
                 var ctexto = pergunta.alternativas[corretaIndice]
-                RespostaDiv = `Incorreto! Resposta Correta ${ctexto}`
+                RespostaDiv = ` Resposta Correta ${ctexto}`
 
             }
 
