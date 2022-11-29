@@ -3,7 +3,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 120vh;
+    height: 130vh;
     margin-top: -6vh;
     margin-bottom: -6vh;
 
@@ -15,7 +15,7 @@ header{
 }
 
 footer{
-    margin-bottom: -4vh;
+   height: 28vh;
 }
 
 /* ESTRUTURA */
@@ -29,6 +29,19 @@ footer{
     border-radius: 26px;
     position: absolute;
     background-color: rgb(0, 0, 0, 0.5);
+    animation: russa 2s infinite ease-in-out;
+   box-shadow: 0px -10px   30px rgb(212, 175, 55) ;
+
+
+
+}
+
+
+@keyframes russa{
+25%{box-shadow: 10px 0px    30px rgb(212, 175, 55) }
+50%{box-shadow: 0px   10px  30px rgb(212, 175, 55)}
+75%{box-shadow: -10px 0px   30px rgb(212, 175, 55)}
+100%{box-shadow: 0px -10px  30px rgb(212, 175, 55) }
 
 
 }
@@ -127,7 +140,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../imgs/medusa_png.png  );
+    background-image: url(../assets/imgs/medusa_png.png );
     background-size: cover;
     border-radius: 10%;
     width: 32vw;
@@ -225,7 +238,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../imgs/davi_com_chiclete.png);
+    background-image: url(../assets/imgs/davi_com_chiclete.png);
     background-size: cover;
     border-radius: 26px;
     width: 35vw;
@@ -321,6 +334,7 @@ font-size: 25px;
     flex-direction: column;
     align-items: flex-start;
     margin-right: 10000vw;
+    margin-top: 5vh;
     width: 26vw;
     height: 10vh;
     font-size: 20px;
@@ -364,14 +378,16 @@ input:hover {
 }
 
 button {
+    
     border: none;
     border-radius: 10%;
     font-size: 1.5vw;
     width: 10vw;
     height: 9vh;
     margin-left: 9vw;
+    margin-top: 10vh;
     color: rgb(255, 255, 255);
-    background-image: url(../imgs/marmoreBlackGold.jpg);
+    background-image: url(../assets/imgs/marmoreBlackGold.jpg);
     background-size: cover;
     box-shadow: 1px 0px 5px rgb(0, 0, 0);
     text-shadow: 0px 2px 200px rgb(0, 0, 0);
@@ -398,4 +414,16 @@ button {
 
 li {
     list-style: none;
+}
+
+
+.mensagem_erro{
+    color: red;
+    margin-left: 6vw;
+}
+
+.mensagem_erro_entrar{
+    color: red;
+    margin-left: 8vw;
+    font-size: 20px;
 }
